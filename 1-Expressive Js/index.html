@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expressive Js</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	/* Class */
+	var Person = function(name, age) {
+		var self = this;
+		self.name = name;
+		self.age = age;
+
+		self.say = function() {
+			console.log('hello ' + self.name);
+		}
+	}
+
+	Person.prototype.display = function() {
+		var self = this;
+		console.log('name: ' + self.name + ' - age: ' + self.age);
+	}
+
+	person = new Person('Viet', 20);
+	person.say();
+	person.display();
+
+	/* Function executed immediately */
+	var baz = (function(bz) {
+		var foo = 10;
+		var bar = 2;
+		console.log(foo * bar + bz);
+
+		return foo * bar;
+	})(10);
+	console.log('baz: ' + baz);
+
+	/* Class Person */
+	function Person(name, age) {
+		var self = this;
+		self.name = name;
+		self.age = age;
+	}
+
+	Person.prototype.get_name = function() {
+		return this.name;
+	};
+	Person.prototype.get_age = function() {
+		return this.age;
+	};
+
+	var alice = new Person('Alice', 10);
+	var bill = new Person('Bill', 20);
+
+	Person.prototype.getGreeting = function() {
+		return 'Hi ' + this.get_name() + '!';
+	};
+
+	console.log(alice.getGreeting());
+
+</script>
+</html>
